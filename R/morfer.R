@@ -26,3 +26,13 @@ analyzeToArray <- function(data) {
   result_array <- .jcall(morfer, "[S", "analyzeToArray", data)
   print(result_array)
 }
+
+#' Retrieve  array which represent plain data return by morfeusz library
+#' @param text_to_analyze data
+#' @return an array in which every element represent one line from morfeusz result
+#' @export
+analyzeToArray <- function(data) {
+  morfer = getMorfer();
+  result_array <- .jcall(morfer, "S", "analyzeToArray", data)
+  print(result_array)
+}
