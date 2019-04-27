@@ -1,5 +1,14 @@
+library(stringr)
+
 install.packages('devtools')
 library(devtools)
 devtools::install_github('lukw34/Rmorfer', force = TRUE)
 library('Rmorfer')
-analyzeToArray(getFileData("./example/data/Harry Potter i Wiezien Azkabanu.txt"))
+arrayFromFile <- analyzeToArray(getFileData("./example/data/Harry Potter i Wiezien Azkabanu.txt"))
+arrayFromString <- analyzeToArray("Ala ma bardzo dużo kotów")
+CSVFromFile <- analyzeToCSV(getFileData("./example/data/Harry Potter i Wiezien Azkabanu.txt"))
+CSVFromString <- analyzeToCSV("Ty masz prawo mieć swoje zdanie, a ja mam prawo mieć to w dupie.")
+JSONFromFile <- analyzeToJSON(getFileData("./example/data/Harry Potter i Wiezien Azkabanu.txt"))
+JSONFromString <- analyzeToJSON("Nie chce mi się pisać magisterki.")
+
+lemmatized <- as.data.frame(CSVFromFile, stringsAsFactors=FALSE)

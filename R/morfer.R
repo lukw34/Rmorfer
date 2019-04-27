@@ -23,16 +23,30 @@ getFileData <- function(filepath) {
 #' @export
 analyzeToArray <- function(data) {
   morfer = getMorfer();
-  result_array <- .jcall(morfer, "[S", "analyzeToArray", data)
-  print(result_array)
+  resultArray <- .jcall(morfer, "[S", "analyzeToArray", data)
+  print(resultArray)
 }
 
-#' Retrieve  array which represent plain data return by morfeusz library
+#' Retrieve  CSV string which represent data return by morfeusz library
 #' @param text_to_analyze data
 #' @return an array in which every element represent one line from morfeusz result
 #' @export
-analyzeToArray <- function(data) {
+analyzeToCSV <- function(data) {
   morfer = getMorfer();
-  result_array <- .jcall(morfer, "S", "analyzeToArray", data)
-  print(result_array)
+  resultArray <- .jcall(morfer, "S", "analyzeToCSV", data)
+  headers <- c("indexA", "indexB", "word", "lemma", "interpretation", "additionalProperty")
+  headers <- paste(paste(unlist(headers), collapse=';'), "\n", collapse='')
+  text <- paste(headers,resultArray,collapse='')
+  table <- read.csv(textConnection(text), sep = ";")
+  print(table)
+}
+
+#' Retrieve JSON data which represent plain data return by morfeusz library
+#' @param text_to_analyze data
+#' @return an array in which every element represent one line from morfeusz result
+#' @export
+analyzeToJSON <- function(data) {
+  morfer = getMorfer();
+  resultArray <- .jcall(morfer, "S", "analyzeToJSON", data)
+  print(fromJSON(resultArray))
 }
