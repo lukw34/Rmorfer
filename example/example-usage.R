@@ -8,7 +8,7 @@ library('Rmorfer')
 arrayFromFile <- analyzeToArray(getFileData("./example/data/Harry Potter i Wiezien Azkabanu.txt"))
 arrayFromString <- analyzeToArray("Ala ma bardzo dużo kotów")
 CSVFromFile <- analyzeToCSV(getFileData("./example/data/Harry Potter i Wiezien Azkabanu.txt"))
-CSVFromString <- analyzeToCSV("Ty masz prawo mieć swoje zdanie, a ja mam prawo mieć to w dupie.")
+CSVFromString <- analyzeToCSV("Każdy ma prawo mieć swoje zdanie.")
 JSONFromFile <- analyzeToJSON(getFileData("./example/data/Harry Potter i Wiezien Azkabanu.txt"))
 JSONFromString <- analyzeToJSON("Nie chce mi się pisać magisterki.")
 
