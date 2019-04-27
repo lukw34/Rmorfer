@@ -38,5 +38,7 @@ Last one return JSON data:
 arrayFromString <- analyzeToJSON("Nie chce mi się pisać magisterki.")
 ```
 
+Example script shich use this library is placed in example directory.
+
 # Reference
 * Kwan-Yuet Ho, "rJava: Running Java from R, and Building R Packages Wrapping a .jar", *Everything about Data Analytics*, WordPress. 

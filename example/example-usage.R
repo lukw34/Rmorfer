@@ -2,7 +2,8 @@ library(stringr)
 
 install.packages('devtools')
 library(devtools)
-devtools::install_github('lukw34/Rmorfer', force = TRUE)
+devtools::install_github('lukw34/Rmorfer', ref = "v0.1.0", force = TRUE)
+
 library('Rmorfer')
 arrayFromFile <- analyzeToArray(getFileData("./example/data/Harry Potter i Wiezien Azkabanu.txt"))
 arrayFromString <- analyzeToArray("Ala ma bardzo dużo kotów")
