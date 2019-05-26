@@ -24,6 +24,16 @@ Load the package by entering
 ```
 library('Rmorfer')
 ```
+
+To use Rmorfer, you need to initialize Morfer instance which is issued to conduct analysis'.
+As a argument you need to pass path to libmorfeusz system file. As a default they are stored in Rmorfe installation directory.
+How to use this default path is shown in example file. 
+
+```
+morfer <- getMorfer(paste(.libPaths()[1], "/Rmorfer/java/libs", sep = ""));
+
+```
+
 Rmorfer package contain three functions which return result of morphological analysis.
 First one return plain string:
 ```
