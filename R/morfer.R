@@ -1,11 +1,11 @@
 #' Retrieve a Java instance of Morfer
-#' @param filepath path which point to text file
+#' @param rLibraryPath path which point to text file
 #' @return a Java instance of Morfer
 #' @export
 #'
-getMorfer <- function() {
+getMorfer <- function(rLibaryPath) {
   .jaddClassPath('inst/java/Morfer-lib-1.0-SNAPSHOT-jar-with-dependencies.jar')
-  return (.jnew('uek/nlp/Morfer'))
+  return (.jnew('uek/nlp/Morfer', rLibaryPath))
 }
 
 #' Retrieve  a Java File object for specific path
@@ -18,21 +18,21 @@ getFileData <- function(filepath) {
 }
 
 #' Retrieve  array which represent plain data return by morfeusz library
+#' @param morfer instance of morfer which make analyze
 #' @param text_to_analyze data
 #' @return an array in which every element represent one line from morfeusz result
 #' @export
-analyzeToArray <- function(data) {
-  morfer = getMorfer();
+analyzeToArray <- function(morfer, data) {
   resultArray <- .jcall(morfer, "[S", "analyzeToArray", data)
   print(resultArray)
 }
 
 #' Retrieve  CSV string which represent data return by morfeusz library
+#' @param morfer instance of morfer which make analyze
 #' @param text_to_analyze data
 #' @return an array in which every element represent one line from morfeusz result
 #' @export
-analyzeToCSV <- function(data) {
-  morfer = getMorfer();
+analyzeToCSV <- function(morfer, data) {
   resultArray <- .jcall(morfer, "S", "analyzeToCSV", data)
   headers <- c("indexA", "indexB", "word", "lemma", "interpretation", "additionalProperty")
   headers <- paste(paste(unlist(headers), collapse=';'), "\n", collapse='')
@@ -42,11 +42,11 @@ analyzeToCSV <- function(data) {
 }
 
 #' Retrieve JSON data which represent plain data return by morfeusz library
+#' @param morfer instance of morfer which make analyze
 #' @param text_to_analyze data
 #' @return an array in which every element represent one line from morfeusz result
 #' @export
-analyzeToJSON <- function(data) {
-  morfer = getMorfer();
+analyzeToJSON <- function(morfer, data) {
   resultArray <- .jcall(morfer, "S", "analyzeToJSON", data)
   print(fromJSON(resultArray))
 }

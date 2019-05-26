@@ -4,9 +4,11 @@
 \alias{analyzeToArray}
 \title{Retrieve  array which represent plain data return by morfeusz library}
 \usage{
-analyzeToArray(data)
+analyzeToArray(morfer, data)
 }
 \arguments{
+\item{morfer}{instance of morfer which make analyze}
+
 \item{text_to_analyze}{data}
 }
 \value{

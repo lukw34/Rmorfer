@@ -4,9 +4,11 @@
 \alias{analyzeToCSV}
 \title{Retrieve  CSV string which represent data return by morfeusz library}
 \usage{
-analyzeToCSV(data)
+analyzeToCSV(morfer, data)
 }
 \arguments{
+\item{morfer}{instance of morfer which make analyze}
+
 \item{text_to_analyze}{data}
 }
 \value{

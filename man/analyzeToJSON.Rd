@@ -4,9 +4,11 @@
 \alias{analyzeToJSON}
 \title{Retrieve JSON data which represent plain data return by morfeusz library}
 \usage{
-analyzeToJSON(data)
+analyzeToJSON(morfer, data)
 }
 \arguments{
+\item{morfer}{instance of morfer which make analyze}
+
 \item{text_to_analyze}{data}
 }
 \value{

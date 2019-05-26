@@ -4,10 +4,10 @@
 \alias{getMorfer}
 \title{Retrieve a Java instance of Morfer}
 \usage{
-getMorfer()
+getMorfer(rLibaryPath)
 }
 \arguments{
-\item{filepath}{path which point to text file}
+\item{rLibraryPath}{path which point to text file}
 }
 \value{
 a Java instance of Morfer
